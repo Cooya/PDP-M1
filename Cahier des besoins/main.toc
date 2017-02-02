@@ -1,0 +1,49 @@
+\select@language {french}
+\contentsline {chapter}{Introduction}{2}{chapter*.2}
+\contentsline {chapter}{Besoins non-fonctionnels}{3}{chapter*.3}
+\contentsline {section}{\numberline {1.1}Interface}{3}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Description}{3}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Contraintes}{4}{subsection.1.1.2}
+\contentsline {subsubsection}{\numberline {}Ergonomie}{4}{subsubsection.1.1.2.1}
+\contentsline {subsubsection}{\numberline {}Robustesse et stabilit\IeC {\'e}}{4}{subsubsection.1.1.2.2}
+\contentsline {section}{\numberline {1.2}Synchronisation}{4}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Description}{4}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Contraintes}{4}{subsection.1.2.2}
+\contentsline {subsubsection}{\numberline {}Ergonomie}{4}{subsubsection.1.2.2.1}
+\contentsline {subsubsection}{\numberline {}Performance}{4}{subsubsection.1.2.2.2}
+\contentsline {subsubsection}{\numberline {}Batterie}{5}{subsubsection.1.2.2.3}
+\contentsline {subsubsection}{\numberline {}S\IeC {\'e}curit\IeC {\'e}}{5}{subsubsection.1.2.2.4}
+\contentsline {section}{\numberline {1.3}Guidage}{5}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Description}{5}{subsection.1.3.1}
+\contentsline {paragraph}{\IeC {\'E}tat \textit {Straight}: }{5}{figure.caption.5}
+\contentsline {paragraph}{\IeC {\'E}tat \textit {Cross}: }{6}{figure.caption.5}
+\contentsline {subsection}{\numberline {1.3.2}Contraintes}{6}{subsection.1.3.2}
+\contentsline {subsubsection}{\numberline {}Performances}{6}{subsubsection.1.3.2.1}
+\contentsline {subsubsection}{\numberline {}Capacit\IeC {\'e}}{6}{subsubsection.1.3.2.2}
+\contentsline {subsubsection}{\numberline {}Disponibilit\IeC {\'e}}{6}{subsubsection.1.3.2.3}
+\contentsline {subsubsection}{\numberline {}Stabilit\IeC {\'e} du code}{6}{subsubsection.1.3.2.4}
+\contentsline {subparagraph}{Tester les itin\IeC {\'e}raires}{6}{subsubsection.1.3.2.4}
+\contentsline {subparagraph}{Tester les fonctions vibreur}{6}{subsubsection.1.3.2.4}
+\contentsline {subsubsection}{\numberline {}Probl\IeC {\`e}mes envisag\IeC {\'e}s}{6}{subsubsection.1.3.2.5}
+\contentsline {subparagraph}{}{6}{subsubsection.1.3.2.5}
+\contentsline {subparagraph}{}{6}{subsubsection.1.3.2.5}
+\contentsline {subsubsection}{\numberline {}S\IeC {\'e}curit\IeC {\'e}}{7}{subsubsection.1.3.2.6}
+\contentsline {section}{\numberline {1.4}Documentation}{7}{section.1.4}
+\contentsline {chapter}{Besoins fonctionnels}{8}{chapter*.6}
+\contentsline {section}{\numberline {2.1}Environnement de programmation}{8}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Choix de l'IDE}{8}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Android SDK 4.4 Kit-Kat }{8}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Gestionnaire de versions }{8}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Google Maps API }{8}{subsection.2.1.4}
+\contentsline {paragraph}{Algorithme d'itin\IeC {\'e}raire}{8}{subsection.2.1.4}
+\contentsline {paragraph}{Algorithme de g\IeC {\'e}olocalisation}{8}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}Mat\IeC {\'e}riels }{9}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.1.6}Tests avec JUnit4 }{9}{subsection.2.1.6}
+\contentsline {paragraph}{Tests de r\IeC {\'e}gression:}{9}{subsection.2.1.6}
+\contentsline {section}{\numberline {2.2}Gestion de la m\IeC {\'e}moire, SQLite}{9}{section.2.2}
+\contentsline {section}{\numberline {2.3}Synchronisation}{9}{section.2.3}
+\contentsline {section}{\numberline {2.4}Documentation}{10}{section.2.4}
+\contentsline {chapter}{Besoins organisationnels}{11}{chapter*.7}
+\contentsline {section}{\numberline {3.1}Diagramme de Gantt}{11}{section.3.1}
+\contentsline {section}{\numberline {3.2}Diagramme de flux de donn\IeC {\'e}es}{12}{section.3.2}
+\contentsline {section}{\numberline {3.3}Sc\IeC {\'e}narios envisag\IeC {\'e}s}{13}{section.3.3}

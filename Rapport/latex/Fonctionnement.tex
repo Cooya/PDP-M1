@@ -1,0 +1,175 @@
+\chapter{Tests}
+
+\section{Tests unitaires}
+
+Afin de rendre nos modules sûrs et prêts à l'intégration, nous avons décidé de créer des tests sur la majorité de nos méthodes (certaines méthodes nécessitant des fonctions propres aux smartphones sous \textit{Android}, nous n'avons donc pas pu les vérifier en effectuant des tests unitaires). Le principal intérêt est de s'assurer que le code répond toujours aux besoins même après d'éventuelles modifications. Pour ce faire, nous utilisons un outil intégré à \textit{Android Studio}, qui s'appelle \textit{JUnit}. C'est un framework spécialisé dans le développement des tests unitaires reposant sur des assertions qui testent les résultats attendus. Nous usons aussi d'un outil permettant d'aller plus loin dans nos tests, cet outil est \textit{Mockito}. Mais l'utilisation de ce dernier est relativement compliquée et limitée dans un environnement \textit{Android}.
+
+
+\subsection{Utilisation de JUnit}
+
+\textit{JUnit} s'est avéré être un bon outil dans la mise en place de tests unitaires simples, algré un début un peu difficile pour comprendre toutes les subtilités. Tout d'abord, nous avons décidé de mettre comme convention un nom de classe de ce modèle: "[nom de la classe à tester]Test" et pour les méthodes testées les noms seront de ce modèle: "test[nom de la méthode à tester]". Sur les classes de test, certaines annotations propres à \textit{JUnit} doivent ou peuvent être utilisées dont les plus importantes sont:\\
+
+\begin{itemize}
+\item "@BeforeClass": Qui doit se mettre avant une méthode dans la classe de test afin qu'elle soit appelée une fois et au début de l'exécution des tests. On s'en sert pour instancier ou initialiser certaines variables.\\
+\item "@AfterClass": Cette annotation permet à une méthode de la classe de test de n'être appelée qu'une fois et en fin d'exécution des tests. Nous nous en servons pour flush des "buffers" et fermer des fichiers.\\
+\item "@Before": Permet, devant une méthode, que celle-ci soit appelée systématiquement avant chaque appel d'une méthode de test. Nous utilisons cette annotation afin d'instancier des objets pour créer le contexte de chaque test. \textit{JUnit} a un comportement que l'on a du mal à comprendre, on a besoin, parfois, de ré-instancier avant chaque appel car ils sont détruits entre chaque test.\\
+\item "@After": Elle permet à l'utilisateur d'appeler une méthode à chaque fin d'appel à une méthode de test.\\
+\item "@Test": Et enfin la dernière annotation, la plus importante, permet, placée devant une méthode, de la définir comme une méthode de test.\\
+\end{itemize}
+
+\textbf{Remarque}: Avec \textit{JUnit}, les méthodes de test sont appelées dans l'ordre alphabétique et non pas par ordre d'apparition dans la classe. De plus, toutes les méthodes dans la classe de test précédées d'une annotation doivent être en visibilité "public".\\
+
+\textit{JUnit} permet à l'utilisateur d'utiliser tout un panel de tests d'assertion très utiles nous permettant de vérifier une simple égalité d'un entier à un autre, à l'égalité entre deux tableaux en un appel. 
+
+\subsection{Utilisation de Mockito}
+
+Dans l'établissement de tests unitaires, nous avons été obligé dans certains cas de simuler et d'espionner le comportement de certains objets, pour cela nous nous sommes tourné vers \textit{Mockito}. Comme dit précédemment, \textit{Mockito} est un framework "Open Source" permettant de "mocker" des objets et aussi d'espionner des objets. Le fait de "mocker" des objets consiste à tester le comportement d'autres objets, réels, mais liés à un objet inaccessible ou non implémenté. C'est surtout pour le premier cas ("objet inaccessible") que nous utilisons \textit{Mockito} car il est impossible de créer un test pour une méthode utilisant des "BlueToothSocket" qui propres aux téléphones.\\
+La syntaxe correct pour "mocker" un objet est par exemple:
+
+\begin{lstlisting}
+User user = Mockito.mock(User.class);
+\end{lstlisting}\bigskip
+
+Si l'objet doit éventuellement se voir appeler une de ses méthodes qui interagit avec une de ses données membres et afin d'éviter une "NullPointerException" ou une valeur nulle gênante, on doit indiquer le comportement de l'objet "mocké" afin qu'il retourne une valeur statique, bien sûr nous pouvons annuler la spécification du comportement. Pour faire ceci, il suffit d'écrire:
+
+\begin{lstlisting}
+Mockito.when(user.getLogin()).thenReturn("login");
+
+\end{lstlisting}\bigskip pour affecter le comportement et :
+
+\begin{lstlisting}
+Mockito.when(user.getLogin()).thenCallRealMethod();
+\end{lstlisting}\bigskip pour remettre le comportement par défaut.\newpage
+
+Avec \textit{Mockito} il est aussi possible d'espionner un objet afin de pouvoir modifier son comportement exactement comme un objet "mocké", cet outil permet de vérifier des invocations de méthodes et aussi d'en ignorer le comportement. Nous n'avons pas eu de cas où l'utiliser.\newline
+Et enfin, \textit{Mockito} possède aussi une fonctionnalité permettant la vérification d'appels de méthodes selon plusieurs paramètres. On peut vérifier si une méthode d'un objet a été appelée avec un paramètre précis:
+
+\begin{lstlisting}
+Mockito.verify(obj).m("test");
+\end{lstlisting}\bigskip
+
+On peut également vérifier si une méthode d'un objet "obj" a été appelée sur un objet "obj2":
+
+\begin{lstlisting}
+Mockito.verify(obj).m1(Mockito.refEq(obj2));
+\end{lstlisting}\bigskip
+
+On peut vérifier qu'au contraire une méthode d'un objet "obj" n'a jamais été appelée (on doit mettre le paramètre de la méthode lors de la vérification):
+
+\begin{lstlisting}
+Mockito.verify(obj, Mockito.never()).m();
+\end{lstlisting}\bigskip
+
+Et enfin trois fonctionnalités qui découlent des précédentes, à savoir vérifier que la méthode d'un objet a été appelée exactement 3 fois (pour ces trois vérifications il est aussi nécessaire de mettre un paramètre si la méthode en nécessite lors de la vérification):
+
+\begin{lstlisting}
+Mockito.verify(obj, Mockito.times(3)).m();
+\end{lstlisting}\bigskip
+
+Que la méthode a été appelée au moins 3 fois:
+
+\begin{lstlisting}
+Mockito.verify(obj, Mockito.atLeast(3)).m();
+\end{lstlisting}\bigskip
+
+Et que la méthode a été appelée au plus 3 fois:
+
+\begin{lstlisting}
+Mockito.verify(obj, Mockito.atMost(3)).m();
+\end{lstlisting}\bigskip
+
+\textbf{Remarque}: Nous avons remarqué que \textit{Mockito} ne peut pas "mocker" une classe déclarée "final", ni une méthode déclarée "static" ou "private".\newline
+
+Nous utilisons la partie vérification de \textit{Mockito} afin de tester notre protocole de synchronisation, en vérifiant les appels des fonctions dans toutes les situations possibles.
+
+\newpage
+\subsection{La classe TestLog}
+
+Afin de rendre nos tests plus visibles, nous avons décidé de créer une classe qui écrit dans un fichier de type: [classe de test]Logs. On relève le temps que met chaque test à s'exécuter, on ne teste pas le temps sur des tests utilisant des threads car cela ne sera pas représentatif. Comme dit précédemment, on a eu des problèmes entre chaque test car certains objets, ou dans notre cas des objets gérant des flux, se retrouvent soient détruits ou les flux dans les objets se retrouvent fermés. Donc pour éviter ce problème, nous avons décidé d'utiliser le \underline{pattern "Singleton"} sur la classe "TestLog" afin d'éviter de recréer le même objet à chaque fois et de ré-ouvrir les flux. Si un des tests échoue, l'exception levée sera alors indiquée dans le fichier et on passe au test suivant.
+
+\subsection{Test du module de navigation}
+
+Certaines classes n'ont pas pu être testées car, par exemple, si on prend les classes représentant une activité, elles ne peuvent pas être simulées en test unitaire autre que sur \textit{Android}. 
+
+\subsubsection{Test de WayManager (WayManagerTest)}
+
+Tout d'abord, afin de tester de manière optimale les méthodes, nous utilisons des valeurs aléatoires car c'est le meilleur moyen de tester la classe "WayManager" sur tout son ensemble de définition. Une classe a été prévue à cet effet qui contient une unique méthode statique renvoyant un entier aléatoire entre un entier "min" et un entier "max" (cf: "RandomNumber").\\
+
+\begin{lstlisting}
+static public List<LatLng> decodePoly(String encoded);
+\end{lstlisting}
+
+\bigskip Afin de bien tester cette méthode, nous avons choisi, tout d'abord, de tester les valeurs "critiques" qui normalement peuvent être un problème pour la méthode. Si ces tests passent, nous essayons alors de stresser la méthode en lui passant en paramètre une chaîne de caractères de type "polyline" contenant 100 000 objets "LatLng" encodés (le nombre d'objets correspond au nombre de tests effectués sur chaque méthode, la valeur est stockée dans une variable globale à la classe de test, et peut être modifiée à tout moment).\\ 
+La chaîne de caractère est générée par la méthode "initTestPolyLine()", une "polyline" encode une liste d'objets "LatLng".\\
+
+\begin{lstlisting}
+public String initTestPolyLine(List<LatLng> expectedList)
+\end{lstlisting}
+
+Généralement, une "polyline" commence par une suite de caractères généralement de taille 10 représentant la latitude et la longitude de départ, puis tous les caractères qui suivent sont des opérations sur la latitude et la longitude de l'objet précédemment décodé. Chaque opération fait 8 caractères, 4 pour la latitude et 4 pour la longitude. Il faut faire attention à ne pas dépasser les valeur "min" et "max" d'un objet "LatLng", à savoir [-90,90] pour la latitude et [-180,180] pour la longitude, tout en créant en parallèle une liste d'objets "LatLng" témoin.\newline
+
+Une fois créés, on fait donc appel à la méthode à tester, "decodePoly()", en passant en paramètre la chaîne de caractère à décoder, et ensuite on a recourt à une méthode disponible avec les assertions de \textit{JUnit}:
+
+\begin{lstlisting}
+assertArrayEquals(expectedList.toArray(),listTest.toArray());
+\end{lstlisting}\bigskip
+
+comparant ainsi le contenu des deux tableaux qui seront testés, élément par élément. Si la méthode "decodePoly()" fonctionne convenablement, l'exception ne sera pas levée.\newline\bigskip
+
+\begin{lstlisting}
+public float getAngleFromNorth(LatLng origin,LatLng to)
+\end{lstlisting}\bigskip
+
+Cette fonction calcule l'angle formé par la droite comportant les deux points passés en paramètre et l'axe du Nord. Comme vu précédemment, afin de tester le bon comportement de cette méthode, on utilise les valeurs critiques de l'ensemble de définition des objets "LatLng". Si tout ces tests passent, nous avons alors recours aux valeurs aléatoires. Pour cela, nous testons sur plus de "Nbtest" combinaisons de couples d'objets "LatLng" initialisés aléatoirement et nous testons si la valeur retournée est acceptable:
+
+\begin{lstlisting}
+assertEquals(180, resultTest, 180.0);
+\end{lstlisting}\bigskip
+
+On ne peut pas avoir de meilleure vérification que savoir qu'il est compris entre 0 et 360 (valeur d'un angle en degré) car cela reviendrait à recalculer l'angle avec le même code.\\
+
+\begin{lstlisting}
+public Point intersectLocationToPath(Point location)
+\end{lstlisting}\bigskip
+
+Cette fonction fait une projection du point "location" sur une droite passant par deux points fixés. L'un de ces points correspond au point que l'utilisateur vient de passer et l'autre le prochain qu'il devra dépasser. Au final, cette fonction renvoie une nouvelle position correspondant à l'image du point "location" sur le segment constitué du point de contrôle que l'utilisateur vient de passer et du point de contrôle suivant. Pour cela, nous avons testé l'unique cas où les deux points qui créerons la droite sont confondus, c'est un cas critique qui "normalement" ne devrait jamais arriver, mais cela ne nous gène pas car le résultat est correct.
+
+\newpage La vérification des résultats se fait par le biais de la classe "PolyUtil", avec sa méthode:
+
+\begin{lstlisting}
+PolyUtil.isLocationOnPath(location, stateH.getPoints() , true, 0.0)
+\end{lstlisting}\bigskip
+
+qui vérifie si le point "location" est sur le chemin défini par les points dans "stateH.getPoints()". Comme tous les tests précédents, on effectue "NbTest" fois le test précédent en prenant comme location un objet "Point" construit aléatoirement et une liste comprenant deux objets "LatLng" eux aussi instanciés aléatoirement. Puis on appelle la méthode, on récupère la nouvelle position du point "location" et enfin nous vérifions qu'il est bien sur le chemin formé par les points de la liste.
+
+\subsubsection{Test de StateDirectionsHandler (StateDirectionHandlerTest)}
+
+Cette classe est abstraite, et est étendue par toutes les classes de type "[anyString]State" du package. Elle possède une méthode qui n'est pas abstraite et qui peut être testée.\\
+
+\begin{lstlisting}
+protected boolean RoundAboutExit(LatLng location)
+\end{lstlisting}\bigskip
+
+Cette méthode nous a posé beaucoup de problèmes à tester, mais nous allons développer tout cela plus tard. Tout d'abord, cette méthode utilise les deux prochains points par lesquels l'utilisateur va devoir passer et la position de l'utilisateur. Posons "A", la position de l'utilisateur, "B", la position du prochain point que l'utilisateur devra traversé, et "C", la position du point suivant à "B", cette méthode va calculer l'angle $\widehat{ABC}$. Si l'angle est entre 0 et 120, alors il est considéré comme un angle définissant un virage à gauche.\newline
+
+Afin de tester cette méthode, nous testons d'abord tous les cas critiques, si tous les points sont confondus, seulement deux (ces deux cas-là ne devraient jamais arriver), puis un cas logique dont le résultat est attendu. Le problème rencontré est apparu sur les tests effectués avec des valeurs aléatoires. Nous avons commencé à écrire des tests mais en partant du principe que le repère était en deux dimensions et nous ne comprenions pas pourquoi on obtenait des valeurs aberrantes, c'est alors que nous nous sommes rendus compte que les calculs étaient effectués sur un repère sphérique. Nous n'avons pas pu corriger ces tests car toutes nos tentatives ont échouées.\newpage
+
+\subsection{Test du module de synchronisation Bluetooth}
+
+Ce module nous a été plutôt compliqué à tester étant donné que la synchronisation se fait entre deux smartphones par connexion \textit{Bluetooth}. Du coup, il fallait que l'on arrive à recréer un contexte nous permettant de tester cette classe un minimum. La synchronisation entre les deux téléphones se fait par l'utilisation de "BlueServerSocket" et de "BlueSocket", objets non utilisables sur une JVM sans matériel \textit{Bluetooth}, nous ne pouvions pas "mocker" ces objets car nous avions besoin d'une connexion pour pouvoir tester. Nous avons alors choisi de créer trois classes de "mock" afin de reproduire la synchronisation \textit{Bluetooth} en local avec de simples "Socket". La première qui reproduit le comportement de la classe "Server", s'appelle "ServerMock", elle étend la classe "Server" et on est obligé de redéfinir certaines méthodes pour qu'elles utilisent des "Sockets". Le polymorphisme effectué ne change pas le comportement général, juste les moyens de connexion, donc le protocole général de la synchronisation reste le même. La classe "ClientMock" étend "Client" et le polymorphisme est aussi effectué pour modifier les "Sockets". La classe "ClientServerManageDataMock" étend "ClientServerManageData" qui gère la connexion entre le client et le serveur.\\
+
+\textbf{Remarque}: Nous aurions pu créer une interface qu'implémenteraient les classes "Server" et "ServerMock" mais pour un test nous voulions modifier le moins possible le code de la classe "Server".
+
+\subsubsection{Test de la méthode WriteBlue}
+
+\begin{lstlisting}
+public void writeBlue(String bytes){...}
+\end{lstlisting}\bigskip
+
+Nous nous servons du test de cette méthode pour tester le protocole complet, étant donné que toutes les transmissions passent par cette méthode que cela soit du côté client comme du côté serveur. Cette méthode peut donner l'ordre au serveur et au client de vibrer par le biais d'un objet de type "Vibrator" propre aux smartphones, nous devons donc "mocker" cette objet et modifier le comportement de sa méthode "vibrate()". Pour cela, nous utilisons \textit{Mockito} comme cela:
+
+\begin{lstlisting}
+Mockito.doNothing().when(this.getVibrator()).vibrate(1000);
+\end{lstlisting}\bigskip
+
+Pour tester ceci, nous décidons que le serveur devra vibrer si on envoie la chaîne de caractère "right" à la méthode en mode synchronisation. Nous établissons la connexion entre le client et le serveur et nous testons alors si le serveur appelle "writeBlue()" avec comme paramètre "left" si le client a vibré et si l'acquittement a bien été renvoyé par le client. Pour vérifier cela, nous utilisons la méthode "verify()" de \textit{Mockito}, on arrive à voir si le client a bien vibré exactement une fois et a envoyé l'acquittement exactement une fois avec le bon argument. Ensuite, nous attendons 5 secondes afin d'attendre l'envoi du "ping" par le client et l'envoi de l'acquittement par le serveur. Nous vérifions les appels, et si ces tests passent, nous vérifions alors que si on appelle la méthode avec le paramètre "right", qu'aucun message n'est envoyé au client et que le serveur vibre. Ensuite nous interrompons la connexion entre le serveur et le client afin de forcer le module à rentrer en mode "solo", nous attendons 10 secondes afin que le serveur se rende compte qu'il n'y a plus de connexion. Et pour finir, afin de vérifier que le mode solo est fonctionnel, on teste en appelant "writeBlue()" avec comme paramètre "right", si le serveur vibre deux fois comme décrit dans le protocole.

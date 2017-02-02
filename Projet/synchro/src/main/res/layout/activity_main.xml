@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_dialog_email" />
+
+
+<TextView
+    android:id="@+id/text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="@string/Text" />
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="30dp" >
+
+<Button
+    android:id="@+id/turnOn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/on" />
+
+<Button
+    android:id="@+id/turnOff"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/off" />
+
+        <Button
+            android:id="@+id/gauche"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gauche" />
+        <Button
+            android:id="@+id/droite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/droite" />
+
+    </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="80dp" >
+
+<Button
+    android:id="@+id/paired"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/List" />
+
+<Button
+    android:id="@+id/search"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/Find" />
+
+<ListView
+    android:id="@+id/listView1"
+    android:layout_width="fill_parent"
+    android:layout_height="200dp" >
+    </ListView>
+
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

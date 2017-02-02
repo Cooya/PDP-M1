@@ -1,0 +1,7 @@
+<root>
+  <item name='android.content.ContextWrapper int checkSelfPermission(java.lang.String)'>
+    <annotation name='org.jetbrains.annotations.Contract'>
+      <val val="&quot;null -&gt; fail&quot;" />
+    </annotation>
+  </item>
+</root>

@@ -1,0 +1,28 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+	android:layout_height="fill_parent" >
+
+	<LinearLayout
+		android:id="@+id/addresses_list"
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" >
+
+		<EditText
+			android:id="@+id/dest_address"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="@string/dest_address_hint"
+			android:inputType="textPostalAddress|textNoSuggestions"
+            android:imeOptions="actionNone"
+		/>
+
+		<View
+			android:layout_width="match_parent"
+			android:layout_height="0.2dp"
+			android:background="@android:color/darker_gray"
+		/>
+
+	</LinearLayout>
+
+</ScrollView>

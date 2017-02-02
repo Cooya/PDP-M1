@@ -1,0 +1,94 @@
+\select@language {french}
+\contentsline {chapter}{Remerciements}{3}{chapter*.2}
+\contentsline {chapter}{Introduction}{1}{chapter*.3}
+\contentsline {chapter}{\numberline {1}Contexte et pr\IeC {\'e}sentation du projet}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}Contexte et analyse de l'existant}{2}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Contexte}{2}{subsection.1.1.1}
+\contentsline {subsubsection}{\numberline {}Choix des technologies utilis\IeC {\'e}es}{2}{subsubsection.1.1.1.1}
+\contentsline {subsubsection}{\numberline {}La soci\IeC {\'e}t\IeC {\'e} \emph {Google}}{2}{subsubsection.1.1.1.2}
+\contentsline {subsubsection}{\numberline {}Le syst\IeC {\`e}me d'exploitation \emph {Android}}{2}{subsubsection.1.1.1.3}
+\contentsline {subsubsection}{\numberline {}Fonctionnement d'une application}{3}{subsubsection.1.1.1.4}
+\contentsline {subsubsection}{\numberline {}Fonctionnement d'une activit\IeC {\'e}}{4}{subsubsection.1.1.1.5}
+\contentsline {subsubsection}{\numberline {}Ressources}{5}{subsubsection.1.1.1.6}
+\contentsline {subsubsection}{\numberline {}Les layouts}{5}{subsubsection.1.1.1.7}
+\contentsline {subsubsection}{\numberline {}Le fichier AndroidManifest.xml}{5}{subsubsection.1.1.1.8}
+\contentsline {subsection}{\numberline {1.1.2}Analyse de l'existant}{5}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Analyse des besoins de l'application}{6}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Besoins fonctionnels}{6}{subsection.1.2.1}
+\contentsline {subsubsection}{\numberline {}Choix de l'environnement de programmation}{6}{subsubsection.1.2.1.1}
+\contentsline {subsubsection}{\numberline {}Android SDK 4.4 Kit-Kat}{6}{subsubsection.1.2.1.2}
+\contentsline {subsubsection}{\numberline {}Gestionnaire de versions, SVN}{7}{subsubsection.1.2.1.3}
+\contentsline {subsubsection}{\numberline {}Google Maps API }{7}{subsubsection.1.2.1.4}
+\contentsline {paragraph}{Algorithme d'itin\IeC {\'e}raire}{7}{subsubsection.1.2.1.4}
+\contentsline {paragraph}{Algorithme de g\IeC {\'e}olocalisation}{7}{subsubsection.1.2.1.4}
+\contentsline {subsubsection}{\numberline {}Mat\IeC {\'e}riels}{7}{subsubsection.1.2.1.5}
+\contentsline {subsubsection}{\numberline {}Tests avec JUnit4}{8}{subsubsection.1.2.1.6}
+\contentsline {paragraph}{Tests de r\IeC {\'e}gression}{8}{subsubsection.1.2.1.6}
+\contentsline {subsection}{\numberline {1.2.2}Besoins non-fonctionnels}{8}{subsection.1.2.2}
+\contentsline {subsubsection}{\numberline {}Module de saisie d'adresse}{8}{subsubsection.1.2.2.1}
+\contentsline {paragraph}{Ergonomie}{8}{subsubsection.1.2.2.1}
+\contentsline {paragraph}{Robustesse et stabilit\IeC {\'e}}{8}{subsubsection.1.2.2.1}
+\contentsline {subsubsection}{\numberline {}Module synchronisation}{8}{subsubsection.1.2.2.2}
+\contentsline {paragraph}{Ergonomie}{8}{subsubsection.1.2.2.2}
+\contentsline {paragraph}{Performance}{8}{subsubsection.1.2.2.2}
+\contentsline {paragraph}{Batterie}{8}{subsubsection.1.2.2.2}
+\contentsline {paragraph}{S\IeC {\'e}curit\IeC {\'e}}{9}{subsubsection.1.2.2.2}
+\contentsline {subsubsection}{\numberline {}Module de guidage}{9}{subsubsection.1.2.2.3}
+\contentsline {paragraph}{Performances}{9}{subsubsection.1.2.2.3}
+\contentsline {paragraph}{Capacit\IeC {\'e}}{9}{subsubsection.1.2.2.3}
+\contentsline {paragraph}{Disponibilit\IeC {\'e}}{9}{subsubsection.1.2.2.3}
+\contentsline {paragraph}{Stabilit\IeC {\'e} du code}{9}{subsubsection.1.2.2.3}
+\contentsline {subparagraph}{Tester les itin\IeC {\'e}raires}{9}{subsubsection.1.2.2.3}
+\contentsline {subparagraph}{Tester les fonctions vibreur}{9}{subsubsection.1.2.2.3}
+\contentsline {paragraph}{Probl\IeC {\`e}mes envisag\IeC {\'e}s}{9}{subsubsection.1.2.2.3}
+\contentsline {subparagraph}{}{9}{subsubsection.1.2.2.3}
+\contentsline {subparagraph}{}{10}{subsubsection.1.2.2.3}
+\contentsline {paragraph}{S\IeC {\'e}curit\IeC {\'e}}{10}{subsubsection.1.2.2.3}
+\contentsline {section}{\numberline {1.3}Sc\IeC {\'e}narios et diagrammes}{11}{section.1.3}
+\contentsline {subsubsection}{\numberline {}Diagramme d'\IeC {\'e}tats}{11}{subsubsection.1.3.0.1}
+\contentsline {subsubsection}{\numberline {}Diagramme de Gant}{11}{subsubsection.1.3.0.2}
+\contentsline {subsection}{\numberline {1.3.1}Sc\IeC {\'e}narios possibles}{12}{subsection.1.3.1}
+\contentsline {chapter}{\numberline {2}Architecture et description de l'application}{17}{chapter.2}
+\contentsline {section}{\numberline {2.1}Architecture des modules}{17}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Module de saisie d'adresse}{18}{subsection.2.1.1}
+\contentsline {subsubsection}{\numberline {}Description g\IeC {\'e}n\IeC {\'e}rale}{18}{subsubsection.2.1.1.1}
+\contentsline {subsubsection}{\numberline {}Diagramme des classes}{19}{subsubsection.2.1.1.2}
+\contentsline {subsubsection}{\numberline {}Description technique}{19}{subsubsection.2.1.1.3}
+\contentsline {subsubsection}{\numberline {}Stockage des donn\IeC {\'e}es}{21}{subsubsection.2.1.1.4}
+\contentsline {subsection}{\numberline {2.1.2}Module de gestion de cartes et de navigation}{23}{subsection.2.1.2}
+\contentsline {subsubsection}{\numberline {}Description g\IeC {\'e}n\IeC {\'e}rale}{23}{subsubsection.2.1.2.1}
+\contentsline {subsubsection}{\numberline {}Diagramme des classes}{24}{subsubsection.2.1.2.2}
+\contentsline {subsubsection}{\numberline {}Description technique}{24}{subsubsection.2.1.2.3}
+\contentsline {paragraph}{Gestion de la carte et de l'itin\IeC {\'e}raire}{24}{subsubsection.2.1.2.3}
+\contentsline {paragraph}{Gestion des \IeC {\'e}tats}{25}{lstnumber.-4.1}
+\contentsline {subsection}{\numberline {2.1.3}Module de synchronisation Bluetooth}{27}{subsection.2.1.3}
+\contentsline {subsubsection}{\numberline {}Architecture Client/Serveur}{27}{subsubsection.2.1.3.1}
+\contentsline {subsubsection}{\numberline {}Protocole de communication}{27}{subsubsection.2.1.3.2}
+\contentsline {subsubsection}{\numberline {}Fiabilit\IeC {\'e} du protocole}{27}{subsubsection.2.1.3.3}
+\contentsline {subsubsection}{\numberline {}Diagramme des classes}{28}{subsubsection.2.1.3.4}
+\contentsline {subsubsection}{\numberline {}Description technique}{28}{subsubsection.2.1.3.5}
+\contentsline {chapter}{\numberline {3}Tests}{31}{chapter.3}
+\contentsline {section}{\numberline {3.1}Tests unitaires}{31}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Utilisation de JUnit}{31}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Utilisation de Mockito}{32}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}La classe TestLog}{34}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Test du module de navigation}{34}{subsection.3.1.4}
+\contentsline {subsubsection}{\numberline {}Test de WayManager (WayManagerTest)}{34}{subsubsection.3.1.4.1}
+\contentsline {subsubsection}{\numberline {}Test de StateDirectionsHandler (StateDirectionHandlerTest)}{36}{subsubsection.3.1.4.2}
+\contentsline {subsection}{\numberline {3.1.5}Test du module de synchronisation Bluetooth}{37}{subsection.3.1.5}
+\contentsline {subsubsection}{\numberline {}Test de la m\IeC {\'e}thode WriteBlue}{37}{subsubsection.3.1.5.1}
+\contentsline {chapter}{\numberline {4}Avancement du projet et am\IeC {\'e}liorations possibles}{38}{chapter.4}
+\contentsline {section}{\numberline {4.1}Module de saisie d'adresse}{38}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Avancement et probl\IeC {\`e}mes rencontr\IeC {\'e}s}{38}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Am\IeC {\'e}liorations envisag\IeC {\'e}s}{38}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Module de navigation}{39}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Avancement et probl\IeC {\`e}mes rencontr\IeC {\'e}s}{39}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Am\IeC {\'e}liorations envisag\IeC {\'e}s}{39}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Module de synchronisation Bluetooth}{40}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Avancement et probl\IeC {\`e}mes rencontr\IeC {\'e}s}{40}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Am\IeC {\'e}liorations envisag\IeC {\'e}s}{40}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Tests}{41}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Avancement et probl\IeC {\`e}mes rencontr\IeC {\'e}s}{41}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Am\IeC {\'e}liorations envisag\IeC {\'e}s}{41}{subsection.4.4.2}
+\contentsline {chapter}{Bilan}{42}{chapter*.6}
+\contentsline {chapter}{Bibliographie}{43}{chapter*.7}

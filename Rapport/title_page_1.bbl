@@ -1,0 +1,37 @@
+\begin{thebibliography}{1}
+
+\bibitem{EclipseAndroid}
+Renald Boulestin.
+\newblock {Google arrête le support d'Android Developper Tools d'Eclipse}.
+\newblock
+  \url{http://www.itespresso.fr/google-arrete-support-android-developer-tools-eclipse-100014.html},
+  30/06/2015.
+
+\bibitem{Navirando}
+Arnaud Bouvier.
+\newblock {Un GPS pour guider les aveugles en randonnée}.
+\newblock
+  \url{https://informations.handicap.fr/art-gps-experimental-aveugle-865-7828.php},
+  30/06/2015.
+
+\bibitem{BDD}
+Frédéric Espiau.
+\newblock {Créez des applications pour Android, chapitre "Les base de
+  données"}.
+\newblock
+  \url{https://openclassrooms.com/courses/creez-des-applications-pour-android/les-bases-de-donnees-5},
+  15/10/2015.
+
+\bibitem{Apache}
+Apache Foundation.
+\newblock {Licence Apache}.
+\newblock \url{http://www.apache.org/licenses/LICENSE-2.0}, 01/2004.
+
+\bibitem{Mockito}
+Aurélien Garnier.
+\newblock {Mockito ou comment faciliter l’écriture de tests unitaires}.
+\newblock
+  \url{http://blog.soat.fr/2013/07/mockito-ou-comment-faciliter-lecriture-de-tests-unitaires/},
+  07/2013.
+
+\end{thebibliography}

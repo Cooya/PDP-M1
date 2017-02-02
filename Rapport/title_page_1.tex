@@ -1,0 +1,146 @@
+\documentclass[12pt]{report}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais]{babel}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{fnpct}
+\usepackage{array}
+\usepackage{titlesec}
+\usepackage{amssymb}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+
+% --------------INTEGRATION CODE JAVA----------
+\usepackage{listings}
+\lstset{
+language=Java,
+basicstyle=\normalsize, % ou ça==> basicstyle=\scriptsize,
+upquote=true,
+aboveskip={1.5\baselineskip},
+columns=fullflexible,
+showstringspaces=false,
+extendedchars=true,
+breaklines=true,
+showtabs=false,
+showspaces=false,
+showstringspaces=false,
+identifierstyle=\ttfamily,
+keywordstyle=\color[rgb]{0,0,1},
+commentstyle=\color[rgb]{0.133,0.545,0.133},
+stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+%-------------------------------------------------------
+
+\usepackage{diagbox}
+\usepackage{geometry}
+\geometry{hmargin=2.5cm,vmargin=1.5cm}
+
+\titlespacing*{\subsection}{30pt}{15pt}{10pt}
+\titlespacing*{\subsubsection}{0pt}{15pt}{5pt}
+
+% Packages graphiques
+\usepackage{caption} 
+\captionsetup{justification=centering}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{pdfpages}
+\usepackage{adjustbox}
+\usetikzlibrary{plotmarks}
+\pgfplotsset{compat=1.8}
+
+\renewcommand{\thesubsubsection}{}
+\renewcommand{\theparagraph}{}
+\usepackage{blindtext}
+\usepackage{chngcntr}
+\usepackage[nottoc, notlof, notlot]{tocbibind}
+\counterwithin*{section}{chapter}
+
+\title{Guidage d'une personne malvoyante via une application GPS sur smartphone}
+\author{Guitard \and Ouaraqua Dantchiawa \and Marcy \and Berthelot}
+\date{\today}
+\begin{document}
+\setcounter{secnumdepth}{3}
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} 
+
+\center 
+
+\textsc{\LARGE Université de Bordeaux}\\[1.5cm] 
+\textsc{\Large Département Informatique}\\[0.5cm] 
+\textsc{\large Projet de Programmation}\\[0.5cm] 
+
+%----------------------------------------------------------------------------------------
+%	TITRE
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.5cm]
+{ \LARGE \bfseries Guidage d’une personne malvoyante via une application GPS sur smartphone}\\[0.5cm]
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTEURS
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Auteurs:}\\
+Alan \textsc{Guitard}\\
+Mohamed Ouaraqua \textsc{ Dantchiawa}\\
+Nicolas \textsc{Marcy}\\
+Florian \textsc{Berthelot}\\
+
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Encadrant:} \\
+Matthieu \textsc{Raffinot}\\
+\emph{Client:}\\
+Serge \textsc{Chaumette} 
+\end{flushright}
+\end{minipage}\\[2cm]
+
+
+
+%----------------------------------------------------------------------------------------
+%	DATE 
+%----------------------------------------------------------------------------------------
+
+{\large \today}\\[1.5cm] % Date
+
+%----------------------------------------------------------------------------------------
+%	LOGO
+%----------------------------------------------------------------------------------------
+
+\includegraphics[height=80px]{Assets/logoUniversite.jpg}\\[1cm] % Logo université
+ 
+%----------------------------------------------------------------------------------------
+
+\vfill 
+
+\end{titlepage}
+
+\tableofcontents
+
+\newpage
+
+\include{latex/Remerciements}
+\include{latex/Resume}
+\include{latex/Introduction}
+\include{latex/Contexte}
+\include{latex/Description}
+\include{latex/Fonctionnement}
+\include{latex/Ameliorations}
+\include{latex/Conclusion}
+
+\bibliographystyle{plain}
+\bibliography{Bibliographie/biblio}
+\nocite{*}
+
+\end{document}

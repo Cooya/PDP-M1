@@ -1,0 +1,52 @@
+\chapter{Avancement du projet et améliorations possibles}
+
+\emph{Ce chapitre donne l'avancement du projet à la date de la remise de ce rapport et peut ne plus être à jour à la date où vous lisez ces lignes.}
+\section{Module de saisie d'adresse}
+
+\subsection{Avancement et problèmes rencontrés}
+Globalement, même si l'interface graphique est peu poussé au niveau du design, car ce n'était pas vraiment le but, ce module reste assez complet au niveau des objectifs qu'il devait atteindre. La principale difficulté a été de maîtriser la construction graphique des activités via un fichier XML et dynamiquement à l'exécution, il reste encore beaucoup d'approfondissements à faire sur ce sujet. La manipulation des états d'une activité et des tâches de fond ont été aussi un peu déroutantes au départ, mais ces deux domaines sont maintenant compris et maîtrisés.
+
+\subsection{Améliorations envisagés}
+Il reste de nombreuses améliorations à ajouter, si on voudrait par exemple, en faire une application disponible sur le \textit{Google Market}. Notamment, au niveau de l'accessibilité, si l'application se destine réellement à des utilisateurs plus ou moins malvoyants, elle se doit d'améliorer son interface au niveau sonore. L'utilisateur devrait pouvoir commander l'application facilement et en connaître l'état sans avoir à demander à une autre personne "voyante" ce qui est affiché sur l'écran. Il est évident que l'on perd en discrétion, mais l'usage d'écouteurs peut facilement combler ce problème, s'il en est un.
+
+\newpage
+\section{Module de navigation}
+
+\subsection{Avancement et problèmes rencontrés}
+Ce module est celui qui gère les algorithmes permettant de gérer les actions en fonction de la position de l'utilisateur dans l'itinéraire défini par le module de saisie d'adresse. A ce jour, toutes les classes utiles au bon développement de ces actions sont implémentées, à savoir toutes les classes d'états, qui étendent la classe abstraite "StateDirectionState". Il manque pour ces classes l'implémentation de la méthode "whatbout()", qui est en charge d'appeler le module de synchronisation afin de faire des requêtes de vibration. Pour cela, nous devrons faire des choix de constantes et répondre à certaines questions:
+\begin{itemize}
+\item A partir de combien de mètres d'une intersection décide t-on de commencer l'action vibratoire ?
+\item Également, à partir de combien de mètres nous considérons que l'utilisateur est trop loin du chemin, et qu'un nouveau calcul d'itinéraire est nécessaire ?
+\item Quelle intervalle de temps entre chaque vibration ?
+\item Comment décider qu'un utilisateur a passer un point, compte tenu de la précision imparfaite de la localisation GPS ?
+\end{itemize}
+
+\subsection{Améliorations envisagés}
+
+Pour ce module, les améliorations seraient non seulement algorithmiques mais aussi au niveau interface. Au niveau algorithme, grâce à la synchronisation, nous pourrions récupérer la localisation GPS de l'autre téléphone, afin de l'utiliser pour préciser la position courante de l'utilisateur. Une fois cette précision accrue, cela nous permettrait d'éviter certaines approximations en répondant aux questions dans la section précédente.\\
+Pour l'interface, nous pourrions penser à un menu adapté aux personnes malvoyantes afin de lui permettre de demander plusieurs itinéraires, d'arrêter la synchronisation à la demande ou encore de changer le code vibratoire en un code qui lui semblerait plus intuitif.\\
+Dans nos réflexions, une idée nous est venue en tête et nous a semblé pertinente, à savoir que les personnes malvoyantes peuvent très bien connaître leur itinéraire mais qu'ils ont juste besoin d'un GPS pour leur dire quand tourner. Nous avons donc imaginer un mode libre qui permettrait à l'utilisateur de choisir où il veut tourner à la prochaine intersection. Ainsi, il pourra aller où bon lui semblera et se faire indiquer la proximité des intersections par le téléphone.
+
+\newpage
+\section{Module de synchronisation Bluetooth}
+
+\subsection{Avancement et problèmes rencontrés}
+Dans le module de synchronisation nous avons pu traité l'appareillement de deux téléphones. Nous avons pu établir un protocole de communication qui permet de contourner les problèmes de déconnexion du serveur ou du client. L'alternative est de lancer le mode sans synchronisation.
+
+Nous avons rencontré un problème sur le protocole de communication. C'était de savoir à quel moment on devait se dire qu'il n'y a plus de synchronisation. Pour le serveur, nous avons assez vite résolu le problème mais pour le client c'était plus compliqué. Pour y remédier, nous avons enrichi notre protocole avec un système de "ping" et d'acquittement. Nous avons ensuite établi un "timeout" au bout duquel la "socket" doit se fermer. Ainsi, nous avons pu contourner beaucoup de problèmes et nous avons assurer une meilleure fiabilité de notre protocole
+
+\subsection{Améliorations envisagés}
+Pour ce module aussi, des améliorations sont possibles. Parmi elles, il y a celle qui nous permettrait d'envoyer des messages pour annoncer la fin d'une synchronisation suite à la décharge de la batterie du serveur par exemple, ce dernier enverrait un message annonçant une déconnexion imminente.
+
+Nous aurions pu aussi établir un protocole qui permettrait de faire des tentatives de reconnexion suite à une interruption du système ou de l'utilisateur.
+
+\newpage
+\section{Tests}
+
+\subsection{Avancement et problèmes rencontrés}
+
+Nous avons pu à ce jour tester deux modules, le module de navigation a été le premier testé car c'était le premier possédant des méthodes testables et à "risques". Les problèmes rencontrés sont surtout dû à la manipulation de l'API \textit{Google}, avec l'appréhension des différents objets, puis avec les calculs de positions et d'angles et savoir à quel moment le résultat obtenu était acceptable ou non, et c'est d'autant plus difficile sur un nombre assez conséquent d'itérations. Ensuite, il y a eu le test du module de synchronisation qui a demandé davantage de temps à mettre en place, car ce module utilise des objets uniquement disponible sur système \textit{Android}. Il a donc fallu se familiariser avec \textit{Mockito} (qui est un outil vraiment utile) afin de pouvoir créer un contexte de test, et on ne pensait pas que cela pouvait être aussi complexe.
+
+\subsection{Améliorations envisagés}
+
+On n'a pas encore pu testé le module de saisie d'adresse, enfin plus précisément la gestion de la base de données, mais nous avons des idées sur le développement de ces tests. Il reste aussi l'amélioration de l'acceptation des résultats pour certaines méthodes dans le module de navigation afin d'aboutir à une meilleure automatisation des tests aléatoires. Concernant les tests pour le module de synchronisation, nous avons peut être oublié d'étudier quelques cas du protocole, cela mériterait davantage d'approfondissement. 
