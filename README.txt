@@ -54,9 +54,3 @@ Root of the projet in project directories.
 		      ==> Resources 
             |--test/java/com/example/ouaraqua/synchro/
 		      ==> Unit tests
-
-For any further informations, please contact :
-"Mohamed Ouaraqua Dantchiawa" <mohamed-ouaraqua.dantchiawa@etu.u-bordeaux.fr>; 
-"Nicolas Marcy" <nicolas.marcy@etu.u-bordeaux.fr>; 
-"Alan Guitard" <alan.guitard@etu.u-bordeaux.fr>; 
-"Florian Berthelot" <florian.berthelot@etu.u-bordeaux.fr>; 
